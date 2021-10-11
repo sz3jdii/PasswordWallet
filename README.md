@@ -28,7 +28,7 @@ Simple Laravel app made for comparing SHA512 with HMAC algorithms.
 
 
     DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
+    DB_HOST=mysql
     DB_PORT=3306
     DB_DATABASE=default
     DB_USERNAME=default
