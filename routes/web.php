@@ -18,6 +18,13 @@ Route::namespace('Site')->group(function () {
     Route::get('/', ['as' => 'site.homepage', 'uses' => 'HomepageController@index']);
     Route::get('/index', ['as' => 'site.homepage.index', 'uses' => 'HomepageController@index']);
 });
+Route::namespace('Guard')->group(function () {
+    // Login
+    Route::group(['prefix' => '/guard'], function() {
+        Route::get('/login', ['as' => 'guard.login', 'uses' => 'AuthController@login']);
+        Route::post('/checkLogin', ['as' => 'guard.checkLogin', 'uses' => 'AuthController@checkLogin']);
+    });
+});
 Route::namespace('Admin')->middleware('auth')->group(function () {
     // Admin
     Route::group(['prefix' => '/admin'], function() {

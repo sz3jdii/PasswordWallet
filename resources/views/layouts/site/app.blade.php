@@ -26,6 +26,7 @@
 @include('layouts.site.parts.header')
 <!-- Site wrapper -->
 <div class="wrapper min-height">
+    @include('layouts.site.parts.notifications')
     @yield('content')
 </div>
 @include('layouts.site.parts.footer')
