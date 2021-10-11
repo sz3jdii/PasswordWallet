@@ -44,15 +44,13 @@ Simple Laravel app made for comparing SHA512 with HMAC algorithms.
 **7. Run workspace container and install composer**
 
 
-    docker exec -it laradock_workspace_1 bash
+    docker-compose exec --user=laradock workspace bash
 
     composer install
 
 
 **8. Run migrations and seeders**
 
-
-    docker exec -it laradock_workspace_1 bash
 
     php artisan migrate --seed
 

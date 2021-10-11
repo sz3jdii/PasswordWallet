@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Warsaw',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pl',
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'pl_PL',
 
     /*
     |--------------------------------------------------------------------------
@@ -230,5 +230,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+    // Config
+    'authSharedKey' => env("AUTH_SHARED_KEY", "THIS_IS_THE_BEST_SECRET_EVER"),
 ];

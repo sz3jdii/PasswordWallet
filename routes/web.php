@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::namespace('Site')->group(function () {
+    // Homepage
+    Route::get('/', ['as' => 'site.homepage', 'uses' => 'HomepageController@index']);
+    Route::get('/index', ['as' => 'site.homepage.index', 'uses' => 'HomepageController@index']);
 });
+Route::namespace('Admin')->middleware('auth')->group(function () {
+    // Admin
+    Route::group(['prefix' => '/admin'], function() {
+
+    });
+});
+
+require __DIR__.'/auth.php';
