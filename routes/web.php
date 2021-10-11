@@ -22,13 +22,15 @@ Route::namespace('Guard')->group(function () {
     // Login
     Route::group(['prefix' => '/guard'], function() {
         Route::get('/login', ['as' => 'guard.login', 'uses' => 'AuthController@login']);
+        Route::get('/register', ['as' => 'guard.register', 'uses' => 'AuthController@register']);
         Route::post('/checkLogin', ['as' => 'guard.checkLogin', 'uses' => 'AuthController@checkLogin']);
+        Route::post('/checkRegister', ['as' => 'guard.checkRegister', 'uses' => 'AuthController@checkRegister']);
     });
 });
-Route::namespace('Admin')->middleware('auth')->group(function () {
-    // Admin
-    Route::group(['prefix' => '/admin'], function() {
-
+Route::namespace('Panel')->middleware('auth')->group(function () {
+    // Panel
+    Route::group(['prefix' => '/panel'], function() {
+        Route::get('/', ['as' => 'panel', 'uses' => 'PanelController@index']);
     });
 });
 

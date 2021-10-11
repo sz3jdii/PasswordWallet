@@ -7,6 +7,7 @@
         <!-- Icon -->
         <div class="fadeIn first">
             <h3>Password Wallet</h3>
+            <h5>Login</h5>
         </div>
 
         <!-- Login Form -->
@@ -17,10 +18,7 @@
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
+        @include('guard._formFooter')
 
     </div>
 
