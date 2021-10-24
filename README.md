@@ -18,7 +18,7 @@ Simple Laravel app made for comparing SHA512 with HMAC algorithms.
     cp env-example .env
 
 
-**4. Change php version to 8.8 in above .env file (laradock folder)**
+**4. Change php version to 8.0 in above .env file (laradock folder)**
 
 
     PHP_VERSION=8.0
