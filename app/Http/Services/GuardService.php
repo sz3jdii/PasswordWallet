@@ -2,6 +2,9 @@
 
 namespace App\Http\Services;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -42,7 +45,10 @@ class GuardService{
         }
         return hash_equals($hash, $encryptedPassword);
     }
-    public function decryptPassword(): string{
-        //
+    public static function decryptPassword(User $user, string $password): string{
+        return str_replace($user->password, '' ,Crypt::decryptString($password));
+    }
+    public static function encryptPassword(User $user, string $password): string{
+        return Crypt::encryptString($user->password.$password);
     }
 }

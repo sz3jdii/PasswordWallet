@@ -19,7 +19,7 @@ class CreateUserPasswordsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->string('login');
-            $table->string('password');
+            $table->text('password');
             $table->string('name');
             $table->string('web_address')->nullable();
             $table->string('description')->nullable();

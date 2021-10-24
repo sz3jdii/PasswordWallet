@@ -45,10 +45,8 @@ class AuthController extends Controller
             $passwordCheck = GuardService::checkPasswords($request->password, $user->password, $user->salt, $user->encryption_type);
             if(!Auth::check() && $passwordCheck){
                 Auth::login($user);
-                \Toastr::success('Successfully logged in!', 'Success!', ["positionClass" => "toast-bottom-right"]);
-            }else{
-                \Toastr::error('You are already logged in!', 'Error!', ["positionClass" => "toast-bottom-right"]);
             }
+            \Toastr::success('Successfully logged in!', 'Success!', ["positionClass" => "toast-bottom-right"]);
             return redirect(route('panel'));
         }catch (\Exception $e){
             \Toastr::error('Error happened during logging in!', 'Error!', ["positionClass" => "toast-bottom-right"]);

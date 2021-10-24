@@ -12,8 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.js("resources/js/site.js", "public/js")
+    .js("resources/js/panel.js", "public/js")
     .js("resources/js/header_site.js", "public/js")
+    .js("resources/js/header_panel.js", "public/js")
     .sass("resources/sass/site.scss", "public/css")
+    .sass("resources/sass/panel.scss", "public/css")
     .options({
         processCssUrls: false,
     });

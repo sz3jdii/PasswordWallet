@@ -1,0 +1,17 @@
+.button{
+    -webkit-appearance: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    padding: 0 10px;
+    width: 100px;
+    height: 40px;
+    background: blue;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+}

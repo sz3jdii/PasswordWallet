@@ -1,5 +1,8 @@
 {
     "/js/site.js": "/js/site.js",
+    "/js/panel.js": "/js/panel.js",
     "/js/header_site.js": "/js/header_site.js",
+    "/js/header_panel.js": "/js/header_panel.js",
+    "/css/panel.css": "/css/panel.css",
     "/css/site.css": "/css/site.css"
 }

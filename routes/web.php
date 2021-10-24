@@ -30,7 +30,11 @@ Route::namespace('Guard')->group(function () {
 Route::namespace('Panel')->middleware('auth')->group(function () {
     // Panel
     Route::group(['prefix' => '/panel'], function() {
-        Route::get('/', ['as' => 'panel', 'uses' => 'PanelController@index']);
+        Route::get('/{userPassword?}', ['as' => 'panel', 'uses' => 'PanelController@index']);
+        Route::group(['prefix' => '/passwords'], function() {
+            Route::get('create', ['as' => 'panel.passwords.create', 'uses' => 'PasswordController@create']);
+            Route::post('create', ['as' => 'panel.passwords.store', 'uses' => 'PasswordController@store']);
+        });
     });
 });
 

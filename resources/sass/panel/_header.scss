@@ -1,0 +1,24 @@
+#navbar {
+    border: none;
+    padding: 10px 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #21409a;
+    color: white;
+    #profile {
+        margin-right: 3%;
+        margin-top: 0.5%;
+        display: inline-flex;
+        .dropdown-item{
+            font-weight: bold;
+        }
+    }
+
+    .navbarDiv {
+        border-bottom: 199px;
+    }
+
+    a {
+        color: white;
+    }
+}

@@ -15,7 +15,9 @@ class UserPassword extends Model
      */
     protected $fillable = [
         'name',
-        'email',
+        'login',
+        'web_address',
+        'description',
         'password',
     ];
 
@@ -29,6 +31,10 @@ class UserPassword extends Model
     ];
 
     public function user(){
-        $this->belongsTo(User::class); // Dopisac relacje!!!!!!!!!!
+        $this->belongsTo(User::class);
+    }
+    public function getPassword(): string{
+        $password = "********";
+        return $password;
     }
 }
