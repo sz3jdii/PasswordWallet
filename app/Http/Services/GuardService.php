@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class GuardService{
@@ -25,13 +26,23 @@ class GuardService{
         return $this->salt;
     }
     public function generatePassword(): string{
-        $encryptedPassword = '';
         if($this->encryptionType == 'SHA512'){
-            $encryptedPassword = hash('sha512', $this->pepper.$this->salt.$this->password);
+            $encryptedPassword = hash('SHA512', $this->pepper.$this->salt.$this->password);
         }else{
-            $encryptedPassword = hash_hmac(); //TODO
-
+            $encryptedPassword = hash_hmac('SHA512', $this->password,  $this->pepper);
         }
         return $encryptedPassword;
+    }
+    public static function checkPasswords(string $password, string $hash, string $salt, string $encryptionType): bool{
+        $pepper = config('authSharedKey');
+        if($encryptionType == 'SHA512'){
+            $encryptedPassword = hash('sha512', $pepper.$salt.$password);
+        }else{
+            $encryptedPassword = hash_hmac('SHA512', $password, $pepper);
+        }
+        return hash_equals($hash, $encryptedPassword);
+    }
+    public function decryptPassword(): string{
+        //
     }
 }

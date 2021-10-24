@@ -16,7 +16,7 @@
                <br>
                Don't have an account?
                <br>
-               <a href="{{route('guard.login')}}">Sign up!</a>
+               <a href="{{route('guard.register')}}">Sign up!</a>
            </div>
 
         </div>

@@ -19,8 +19,8 @@
             <input type="password" id="password_confirmation" class="fadeIn third" name="password_confirmation" placeholder="confirm password" required>
             <select name="encryption_type" id="encryption_type">
                 <option value="" selected disabled>Please select encryption type...</option>
-                <option value="SHA512">SHA512</option>
-                <option value="HMAC">HMAC</option>
+                <option value="SHA512" {{old("encryption_type") === "SHA512" ? "selected" : ""}}>SHA512</option>
+                <option value="HMAC" {{old("encryption_type") === "HMAC" ? "selected" : ""}}>HMAC</option>
             </select>
             <input type="submit" class="fadeIn fourth" value="Sign up">
         </form>
