@@ -35,6 +35,10 @@ Route::namespace('Panel')->middleware('auth')->group(function () {
             Route::get('create', ['as' => 'panel.passwords.create', 'uses' => 'PasswordController@create']);
             Route::post('create', ['as' => 'panel.passwords.store', 'uses' => 'PasswordController@store']);
         });
+        Route::group(['prefix' => '/user'], function() {
+            Route::get('{user}/edit', ['as' => 'panel.users.edit', 'uses' => 'UserController@edit']);
+            Route::put('{user}/edit', ['as' => 'panel.users.update', 'uses' => 'UserController@update']);
+        });
     });
 });
 

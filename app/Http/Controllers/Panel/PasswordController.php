@@ -25,14 +25,14 @@ class PasswordController extends Controller
         $userPassword = new UserPassword();
         $userPassword->fill($request->all());
         // AES-256-CBC
-        $userPassword->password =  GuardService::encryptPassword(User::whereId(Auth::user()->id)->first(),$request->password);
+        $userPassword->password =  GuardService::encryptPassword(Auth::user()->password,$request->password);
         $userPassword->user_id = Auth::user()->id;
         try {
             $userPassword->save();
             \Toastr::success('Successfully added password!', 'Success!', ["positionClass" => "toast-bottom-right"]);
             return redirect()->route('panel');
         } catch(\Exception $e) {
-            \Toastr::error('Error occured while adding a new password. Try again later.', 'Success!', ["positionClass" => "toast-bottom-right"]);
+            \Toastr::error('Error occured while adding a new password. Try again later.', 'Error!', ["positionClass" => "toast-bottom-right"]);
             return back();
         }
     }

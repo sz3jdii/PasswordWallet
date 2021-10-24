@@ -45,10 +45,10 @@ class GuardService{
         }
         return hash_equals($hash, $encryptedPassword);
     }
-    public static function decryptPassword(User $user, string $password): string{
-        return str_replace($user->password, '' ,Crypt::decryptString($password));
+    public static function decryptPassword(string $key, string $password): string{
+        return str_replace($key, '' ,Crypt::decryptString($password));
     }
-    public static function encryptPassword(User $user, string $password): string{
-        return Crypt::encryptString($user->password.$password);
+    public static function encryptPassword(string $key, string $password): string{
+        return Crypt::encryptString($key.$password);
     }
 }

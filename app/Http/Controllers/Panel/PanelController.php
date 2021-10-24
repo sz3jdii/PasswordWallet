@@ -16,7 +16,7 @@ class PanelController extends Controller
 
         foreach ($passwords as $key =>$password){
             if($userPassword && Auth::user()->id === $userPassword->user_id && $password->id === $userPassword->id){
-                $passwords[$key]->password = GuardService::decryptPassword(User::whereId(Auth::user()->id)->first(),$userPassword->password);
+                $passwords[$key]->password = GuardService::decryptPassword(Auth::user()->password,$userPassword->password);
             }else{
                 $passwords[$key]->password = "********";
             }
