@@ -36,7 +36,7 @@ class GuardService{
     public static function checkPasswords(string $password, string $hash, string $salt, string $encryptionType): bool{
         $pepper = config('authSharedKey');
         if($encryptionType == 'SHA512'){
-            $encryptedPassword = hash('sha512', $pepper.$salt.$password);
+            $encryptedPassword = hash('SHA512', $pepper.$salt.$password);
         }else{
             $encryptedPassword = hash_hmac('SHA512', $password, $pepper);
         }
