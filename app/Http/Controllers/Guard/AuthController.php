@@ -29,12 +29,12 @@ class AuthController extends Controller
                 $user->password = $guardService->generatePassword();
                 $user->save();
                 \Toastr::success('Account created successfully! You can now log in!', 'Success!', ["positionClass" => "toast-bottom-right"]);
-                return redirect(route('guard.login'));
+                return redirect(route('guard.login'), '201');
             }
             return redirect('guard.register');
         }catch (\Exception $e){
             \Toastr::error('Error happened during account creation!', 'Error!', ["positionClass" => "toast-bottom-right"]);
-            return redirect(route('guard.register'));
+            return redirect(route('guard.register'), '400');
         }
 
     }
