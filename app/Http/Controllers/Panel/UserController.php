@@ -48,7 +48,7 @@ class UserController extends Controller
             return redirect()->route('panel');
         } catch(\Exception $e) {
             DB::rollBack();
-            \Toastr::error('Error occured while updating user. Try again later.', 'Error!', ["positionClass" => "toast-bottom-right"]);
+            \Toastr::error('Error occurred while updating user. Try again later.', 'Error!', ["positionClass" => "toast-bottom-right"]);
             return back();
         }
     }

@@ -2,10 +2,15 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
+    use WithFaker;
+    use RefreshDatabase;
+
     public function testRequiredFieldsForRegistration()
     {
         $this->json('POST', 'guard/checkRegister', ['Accept' => 'application/json'])
@@ -26,7 +31,7 @@ class AuthenticationTest extends TestCase
         $userData = [
             "encryption_type" => 'HMAC',
             "name" => "John Doe",
-            "email" => "doe@example.com",
+            "email" => $this->faker->unique()->safeEmail(),
             "password" => "demo12345"
         ];
 
@@ -45,7 +50,7 @@ class AuthenticationTest extends TestCase
         $userData = [
             "encryption_type" => 'HMAC',
             "name" => "John Doe",
-            "email" => "do2ee@example.com",
+            "email" => $this->faker->unique()->safeEmail(),
             "password" => "demo12345",
             "password_confirmation" => "demo12345"
         ];
