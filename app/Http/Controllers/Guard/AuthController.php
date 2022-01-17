@@ -13,13 +13,13 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-    public function login(): View{
+    public function login(): View {
         return view('guard.login');
     }
-    public function register(): View{
+    public function register(): View {
         return view('guard.register');
     }
-    public function checkRegister(RegisterRequest $request): RedirectResponse{
+    public function checkRegister(RegisterRequest $request): RedirectResponse {
         try{
             if(!Auth::check()){
                 $user = new User();
